@@ -1,9 +1,10 @@
+#include "npc_talent_template.h"
+
 #include "Chat.h"
-#include "Creature.h"
 #include "Config.h"
+#include "Creature.h"
 #include "ReputationMgr.h"
 #include "ScriptedGossip.h"
-#include "npc_talent_template.h"
 
 #define DEFAULT_GOSSIP_ACTION_ENTRY 9999 // default value for gossipAction when creating new template
 
@@ -473,7 +474,7 @@ class npc_talent_template : public CreatureScript
 public:
     npc_talent_template() : CreatureScript("npc_talent_template") {}
 
-    bool OnGossipHello(Player* player, Creature* creature)
+    bool OnGossipHello(Player* player, Creature* creature) override
     {
         for (auto const& indexTemplate : sTemplateNpcMgr->indexContainer)
             if (indexTemplate->playerClass == sTemplateNpcMgr->GetClassString(player).c_str() && (indexTemplate->minLevel <= player->GetLevel() && player->GetLevel() <= indexTemplate->maxLevel))
@@ -500,7 +501,7 @@ public:
         return true;
     }
 
-    bool OnGossipSelect(Player* player, Creature* creature, uint32 /*uiSender*/, uint32 uiAction)
+    bool OnGossipSelect(Player* player, Creature* creature, uint32 /*uiSender*/, uint32 uiAction) override
     {
         if (!player || !creature)
             return false;
@@ -619,7 +620,10 @@ public:
 class npc_talent_template_world : public WorldScript
 {
 public:
-    npc_talent_template_world() : WorldScript("npc_talent_template_world") {}
+    npc_talent_template_world() : WorldScript("npc_talent_template_world", {
+        WORLDHOOK_ON_AFTER_CONFIG_LOAD,
+        WORLDHOOK_ON_STARTUP
+    }) {}
 
     void OnAfterConfigLoad(bool /*reload*/) override
     {
