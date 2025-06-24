@@ -33,6 +33,15 @@ NpcTalentTemplate.EnableRemoveAllGlyphs = 1
 NpcTalentTemplate.EnableDestroyEquippedGear = 1
 
 #
+#    NpcTalentTemplate.EnableLevelTo70
+#        Description: Enables Gossip Option to Boost Level to 70
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+
+NpcTalentTemplate.EnableLevelTo70 = 1
+
+#
 #    NpcTalentTemplate.AllianceMount
 #    NpcTalentTemplate.HordeMount
 #        Description:

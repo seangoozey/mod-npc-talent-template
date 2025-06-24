@@ -497,7 +497,7 @@ public:
         if (sTemplateNpcMgr->enableDestroyEquippedGear)
             AddGossipItemFor(player, GOSSIP_ICON_INTERACT_1, "|cff00ff00|TInterface\\icons\\ability_vehicle_launchplayer:30|t|r Destroy my equipped gear", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_RESET_REMOVE_EQUIPPED_GEAR, "Are you sure you want to destroy all your equipped gear?", 0, false);
 
-        if (sTemplateNPCMgr->enableLevelTo70)
+        if (sTemplateNpcMgr->enableLevelTo70)
            AddGossipItemFor(player, GOSSIP_ICON_INTERACT_1, "|cff00ff00|TInterface\\petbattles\\battlebar-abilitybadge-strong-small:0|t Level me up to 70", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_BOOST_LEVEL_70, "Are you sure you want to be ridiculed by everyone?", 0, false);
         
         SendGossipMenuFor(player, creature->GetEntry(), creature->GetGUID());
@@ -637,6 +637,7 @@ public:
         sTemplateNpcMgr->enableResetTalents = sConfigMgr->GetOption<bool>("NpcTalentTemplate.EnableResetTalents", true);
         sTemplateNpcMgr->enableRemoveAllGlyphs = sConfigMgr->GetOption<bool>("NpcTalentTemplate.EnableRemoveAllGlyphs", true);
         sTemplateNpcMgr->enableDestroyEquippedGear = sConfigMgr->GetOption<bool>("NpcTalentTemplate.EnableDestroyEquippedGear", true);
+        sTemplateNpcMgr->enableLevelTo70 = sConfigMgr->GetOption<bool>("NpcTalentTemplate.EnableLevelTo70", true);
         sTemplateNpcMgr->allianceMount = sConfigMgr->GetOption<uint32>("NpcTalentTemplate.AllianceMount", SPELL_BIG_BATTLE_BEAR);
         sTemplateNpcMgr->hordeMount = sConfigMgr->GetOption<uint32>("NpcTalentTemplate.HordeMount", SPELL_BIG_BATTLE_BEAR);
     }

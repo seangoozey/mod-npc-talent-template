@@ -296,6 +296,7 @@ public:
     bool enableResetTalents;
     bool enableRemoveAllGlyphs;
     bool enableDestroyEquippedGear;
+    bool enableLevelTo70;
     uint32 allianceMount;
     uint32 hordeMount;
 };
